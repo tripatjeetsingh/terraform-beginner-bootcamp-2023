@@ -199,6 +199,15 @@ You can use `terraform apply -auto-approve` to apply changes without having to i
 
 [Terraform apply command](https://developer.hashicorp.com/terraform/cli/commands/apply)
 
+#### Terraform Destroy
+
+The `Terraform destroy` command is a command that destroys/terminates resources managed by your current Terraform project by deleting infrastructure resources present in the state file. 
+
+You can use `terraform destroy -auto-approve` to destroy changes without having to interactively type ‘yes’.
+
+[Terraform destroy command](https://developer.hashicorp.com/terraform/cli/commands/destroy)
+
+
 #### Terraform Lock Files
 `.terraform.loc.hcl` lock file is designed to record the exact package versions used to satisfy each provider requirement in your configuration. This ensures that every member of your team uses the same provider versions, avoiding inconsistencies and potential bugs.
 
@@ -217,3 +226,4 @@ This file can contain sensetive data. If you lose this file, you lose the state 
 #### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers downloaded during the initialization of terraform using the command `terraform init`.
+
