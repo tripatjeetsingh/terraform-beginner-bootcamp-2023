@@ -10,7 +10,7 @@
     + [Shebang](#shebang)
   * [Execution Considerations](#execution-considerations)
   * [Linux Permissions Consideration](#linux-permissions-consideration)
-  * [Github Lifecycle (Before, Init, Command)](#github-lifecycle--before--init--command-)
+  * [GitPod Lifecycle (Before, Init, Command)](#gitpod-lifecycle--before--init--command-)
   * [Working with Env Vars](#working-with-env-vars)
     + [env command](#env-command)
     + [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
@@ -113,7 +113,7 @@ chmod 744 ./bin/install_terraform_cli
 ```
 [chmod documentation](https://en.wikipedia.org/wiki/Chmod)
 
-### Github Lifecycle (Before, Init, Command)
+### GitPod Lifecycle (Before, Init, Command)
 We need to be careful when using init because it will not run when we restart an existing workspace. 
 
 [GitPod Prebuild and New Workspaces](https://www.gitpod.io/docs/configure/workspaces/tasks)
