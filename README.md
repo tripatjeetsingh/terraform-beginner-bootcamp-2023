@@ -287,3 +287,5 @@ Retrieved token for user xxxxxxxxxx
 ```
 
 [Terraform Cloud Login from the CLI Documentation](https://developer.hashicorp.com/terraform/tutorials/cloud-get-started/cloud-login)
+
+We have automated this workaround using the following bash script [`./bin/generated_tfrc_credentials`](./bin/generate_tfrc_credentials)
