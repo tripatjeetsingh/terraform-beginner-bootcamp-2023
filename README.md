@@ -243,3 +243,47 @@ This file can contain sensetive data. If you lose this file, you lose the state 
 
 `.terraform` directory contains binaries of terraform providers downloaded during the initialization of terraform using the command `terraform init`.
 
+## Issues with Terraform Cloud Login and GitPod workspace
+
+When attempting to run `terraform login` it will launch bash a wiswig view to generate a token. However, it does not work expected in GitPod VSCODE in the browser. You must select `P` for print and then select `q` to quit the print option, it then prompts to enter the API token. After you enter the API token, you will then see a message `Retrieved token for user xxxxxxxxxx`. 
+
+```sh
+Generate a token using your browser, and copy-paste it into this prompt.
+
+Terraform will store the token in plain text in the following file
+for use by subsequent commands:
+    /home/gitpod/.terraform.d/credentials.tfrc.json
+
+Token for app.terraform.io:
+  Enter a value: 
+
+Retrieved token for user xxxxxxxxxx
+
+---------------------------------------------------------------------------------
+
+                                          -                                
+                                          -----                           -
+                                          ---------                      --
+                                          ---------  -                -----
+                                           ---------  ------        -------
+                                             -------  ---------  ----------
+                                                ----  ---------- ----------
+                                                  --  ---------- ----------
+   Welcome to Terraform Cloud!                     -  ---------- -------
+                                                      ---  ----- ---
+   Documentation: terraform.io/docs/cloud             --------   -
+                                                      ----------
+                                                      ----------
+                                                       ---------
+                                                           -----
+                                                               -
+
+
+   New to TFC? Follow these steps to instantly apply an example configuration:
+
+   $ git clone https://github.com/hashicorp/tfc-getting-started.git
+   $ cd tfc-getting-started
+   $ scripts/setup.sh
+```
+
+[Terraform Cloud Login from the CLI Documentation](https://developer.hashicorp.com/terraform/tutorials/cloud-get-started/cloud-login)
