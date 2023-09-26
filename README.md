@@ -199,6 +199,31 @@ You can use `terraform apply -auto-approve` to apply changes without having to i
 
 [Terraform apply command](https://developer.hashicorp.com/terraform/cli/commands/apply)
 
+While creating a S3 bucket using terraform, we encountered the 'InvalidBucketName' error. Upon reviewing the documentation, the Bucket names can consist only of lowercase letters, numbers, dots (.), and hyphens (-). We then added the additional bucket parameters `lower=true` and `upper=false` to the terraform s3 resource definition to resolve the issue.
+```sh
+aws_s3_bucket.my_bucket: Creating...
+╷
+│ Error: creating Amazon S3 (Simple Storage) Bucket (n7dSngRCtL5sygZx): InvalidBucketName: The specified bucket is not valid.
+│       status code: 400, request id: QJEF7J7PC8NFC6X1, host id: hz/cWSGYqjX7tUVKZhJBqEemAC401W4kCPArubjeY1+L1abgot+zvQ9usHA=
+│ 
+│   with aws_s3_bucket.my_bucket,
+│   on main.tf line 23, in resource "aws_s3_bucket" "my_bucket":
+│   23: resource "aws_s3_bucket" "my_bucket" {
+│ 
+╵
+```
+[S3 Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+[Terraform Resource: S3 bucket documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket)
+
+#### Terraform Destroy
+
+The `Terraform destroy` command is a command that destroys/terminates resources managed by your current Terraform project by deleting infrastructure resources present in the state file. 
+
+You can use `terraform destroy -auto-approve` to destroy changes without having to interactively type ‘yes’.
+
+[Terraform destroy command](https://developer.hashicorp.com/terraform/cli/commands/destroy)
+
+
 #### Terraform Lock Files
 `.terraform.loc.hcl` lock file is designed to record the exact package versions used to satisfy each provider requirement in your configuration. This ensures that every member of your team uses the same provider versions, avoiding inconsistencies and potential bugs.
 
@@ -217,3 +242,4 @@ This file can contain sensetive data. If you lose this file, you lose the state 
 #### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers downloaded during the initialization of terraform using the command `terraform init`.
+
