@@ -153,4 +153,5 @@ $ aws sts get-caller-identity
 We will need to generate AWS credentials from IAM user in order to use the AWS CLI.
 
 [Creating an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)
+
 [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
