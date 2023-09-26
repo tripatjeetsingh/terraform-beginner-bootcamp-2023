@@ -155,3 +155,65 @@ We will need to generate AWS credentials from IAM user in order to use the AWS C
 [Creating an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)
 
 [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+
+
+## Terraform Basics 
+
+### Terraform Registry
+
+Terraform sources their provider and modules from the terraform registry which is located at [registry.terraform.io](https://registry.terraform.io/)
+
+-   **Providers** in terraform is a plugin that enables interaction with an APIs. They tell Terraform which services it needs to interact with.
+-   **Modules** in terraform is a collection of standard configurations. Terraform modules encapsulates group of resources dedicated to one task, reducing the amount of code you have to develop for similar infrastructure components.
+
+[Terraform random provider](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
+
+### Terraform Console
+
+We can see a list of all the terraform commands by simply typing `terraform`
+
+#### Terraform Init
+After writing your Terraform code, the `terraform init` command is the first command you should use to initialize the working directory by downloading the binaries for the terraform providers. The terraform init command performs the following steps:
+
+-   Backend Initialization
+-   Plugin Installation
+
+[Terraform init command](https://developer.hashicorp.com/terraform/cli/commands/init)
+
+#### Terraform Plan
+The `terraform plan` command reports on changes to infrastructure, but it does not apply any of the proposed changes. Instead, it creates a reviewable execution plan, which you can use to confirm that the proposed changes are expected.
+
+The terraform plan command does the following things:
+
+-   Ensures the state is up to date by reading the current state of any infrastructure.
+-   Proposes a series of changes that will be made to the infrastructure.
+
+The `plan`` can be saved to a file, which can be applied later.
+
+[Terraform plan command](https://developer.hashicorp.com/terraform/cli/commands/plan)
+
+#### Terraform Apply
+The `terraform apply` command executes the actions proposed in a terraform plan. It is used to deploy your infrastructure. Typically apply should be run after `terraform init` and `terraform plan`. It creates or updates infrastructure depending on the configuration files. By default, a plan will be generated first and will need to be approved before it is applied. 
+
+You can use `terraform apply -auto-approve` to apply changes without having to interactively type ‘yes’ to the plan.
+
+[Terraform apply command](https://developer.hashicorp.com/terraform/cli/commands/apply)
+
+#### Terraform Lock Files
+`.terraform.loc.hcl` lock file is designed to record the exact package versions used to satisfy each provider requirement in your configuration. This ensures that every member of your team uses the same provider versions, avoiding inconsistencies and potential bugs.
+
+The terraform Lock file **should be commited** to your version control system (VSC) eg. GitHub
+
+#### Terraform State Files
+
+`.terraform.tfstate` contains information about the current state of your infrastructure. 
+
+This file **should not be commited** to your version control system (VSC) eg. GitHub
+
+This file can contain sensetive data. If you lose this file, you lose the state of your infrastructure. 
+
+`.terraform.tf.state.backup` stores the previous state. 
+
+#### Terraform Directory
+
+`.terraform` directory contains binaries of terraform providers downloaded during the initialization of terraform using the command `terraform init`.
