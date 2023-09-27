@@ -1,13 +1,13 @@
-# resource "random_string" "bucket_name" {
-#   length           = 32
-#   special          = false
-#   lower = true
-#   upper = false
-# }
-resource "aws_s3_bucket" "my_bucket" {
-  #bucket = random_string.bucket_name.result
-  bucket = var.bucket_name
-  tags = {
-    UserUuid        = var.UserUuid
+terraform {
+  cloud {
+    organization = "ACG-Terraform-Demos-Orgs"
+    workspaces {
+      name = "terra-house-workspace1"
+    }
   }
+}
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  UserUuid = var.UserUuid
+  bucket_name = var.bucket_name
 }
