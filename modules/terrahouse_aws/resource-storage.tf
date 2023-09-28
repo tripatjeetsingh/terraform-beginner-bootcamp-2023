@@ -17,12 +17,27 @@ resource "aws_s3_bucket_website_configuration" "website_config" {
   }
 }
 
+## fileset("${path.root}/public/assets","*.{jpg,png,gif}")
+
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.website_bucket.id
   key          = "index.html"  # Change to your desired index file
   source       = var.index_html_filepath  # Local path to your index.html file
   content_type = "text/html"
   etag = filemd5(var.index_html_filepath)
+  lifecycle {
+    replace_triggered_by = [ terraform_data.content_version.output ]
+    ignore_changes = [ etag ]
+  }
+}
+
+resource "aws_s3_object" "upload_assets" {
+  for_each = fileset(var.assets_filepath,"*.{jpg,png,gif}")
+  bucket       = aws_s3_bucket.website_bucket.id
+  key          = "assets/${each.value}"  # Change to your desired file on S3 bucket
+  source       = "${var.assets_filepath}/${each.value}"  # Local path to your index.html file
+  #content_type = "text/html"
+  etag = filemd5("${var.assets_filepath}/${each.value}")
   lifecycle {
     replace_triggered_by = [ terraform_data.content_version.output ]
     ignore_changes = [ etag ]
