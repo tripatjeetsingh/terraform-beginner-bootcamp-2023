@@ -134,9 +134,36 @@ It may likely produce older examples that may be deprecated. Often affecting pro
 
 ## working with Files in Terraform
 
+### Filemd5
+
+[filemd5 Function Documentation](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+### Fileexists function
+
+This is a built-in terraform function to check the existence of a file.
+
+```
+  validation {
+    condition = fileexists(var.index_html_filepath)
+    error_message = "The provided path for index.html does not exist"
+  }
+```
+[Fileexists Function Documentation](https://developer.hashicorp.com/terraform/language/functions/fileexists)
+
+### Path Variables
+
 In Terraform there is a special variable called `path` that allows us to reference local paths:
 
 - path.module - Gets the path for the current module
 - path.root - Gets the path for the root module
 
 [Special Path Variables](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+```
+resource "aws_s3_object" "index" {
+  bucket       = aws_s3_bucket.website_bucket.id
+  key          = "index.html"  # Change to your desired index file
+  source       = "${path.root}/public/index.html"  # Local path to your index.html file
+  content_type = "text/html"
+}
+```
