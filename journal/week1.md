@@ -201,3 +201,22 @@ We used jsonencode to create a json inline policy for the s3 bucket.
 ```
 
 [jsonencode function](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+
+### Changing the Lifecycle of Resoruces
+
+[Meta Arguments Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+## Terraform Data
+
+The terraform_data resource is useful for storing values which need to follow a manage resource lifecycle, and for triggering provisioners when there is no other logical managed resource in which to place them.
+
+Plain data values such as Local Values and Input Variables don't have any side-effects to plan against and so they aren't valid in replace_triggered_by. You can use terraform_data's behavior of planning an action each time input changes to indirectly use a plain value to trigger replacement.
+
+```
+resource "terraform_data" "replacement" {
+  input = var.revision
+}
+```
+
+[Terraform_data resource documentation](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
