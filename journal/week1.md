@@ -254,3 +254,19 @@ This will execute commands on a machine which you target. You will need to provi
 ```
 
 [remote-exec documentation](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
+
+
+## For_Each Expressions
+
+If a resource or module block includes a for_each argument whose value is a map or a set of strings, Terraform creates one instance for each member of that map or set.
+
+This is mostly useful when you sare creating multiples of cloud resources and you wan to reduce the amount of repetitive terraform code.
+
+```
+resource "aws_iam_user" "the-accounts" {
+  for_each = toset( ["Todd", "James", "Alice", "Dottie"] )
+  name     = each.key
+}
+```
+
+[For_Each expression documentation](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
