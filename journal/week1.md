@@ -167,3 +167,37 @@ resource "aws_s3_object" "index" {
   content_type = "text/html"
 }
 ```
+
+## Terraform Locals
+
+Locals allow us to define local variabled. 
+
+It can be very useful when we need to transform data into another format and have it referenced as a variable.
+
+[Local Values](https://developer.hashicorp.com/terraform/language/values/locals)
+
+## Terraform Data Source
+
+This allows us to source data from cloud resources.
+
+This is useful when we want to reference cloud resources without importing it. 
+
+```
+data "aws_caller_identity" "current" {}
+```
+
+[Data Sources Documentation](https://developer.hashicorp.com/terraform/language/data-sources)
+
+
+## Working with JSON
+
+`jsonencode` encodes a given value to a string using JSON syntax.
+
+We used jsonencode to create a json inline policy for the s3 bucket.
+
+```
+> jsonencode({"hello"="world"})
+{"hello":"world"}
+```
+
+[jsonencode function](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
