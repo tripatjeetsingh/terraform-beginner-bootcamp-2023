@@ -1,5 +1,5 @@
 locals {
-  s3_origin_id = "myS3Origin"
+  s3_origin_id = "MyS3Origin"
 }
 resource "aws_cloudfront_origin_access_control" "s3_access_origin" {
   name                              = "OAC - ${var.bucket_name}"
@@ -10,7 +10,8 @@ resource "aws_cloudfront_origin_access_control" "s3_access_origin" {
 }
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket.website_bucket.bucket_domain_name
+    #domain_name = aws_s3_bucket.website_bucket.bucket_domain_name
+    domain_name = aws_s3_bucket.website_bucket.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.s3_access_origin.id
     origin_id                = local.s3_origin_id
   }
