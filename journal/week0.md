@@ -33,7 +33,7 @@
 
 ## Semantics Versioning
 
-This project is going to utilize semantics versioning for its tagging
+This project is going to utilize semantics versioning for its tagging.
 [semver.org](https://semver.org) 
 
 The general format:
