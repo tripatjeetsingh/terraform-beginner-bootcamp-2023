@@ -2,7 +2,8 @@ terraform {
   cloud {
     organization = "ACG-Terraform-Demos-Orgs"
     workspaces {
-      name = "terra-house-workspace1"
+      #name = "terra-house-workspace1"
+      name = "terraform-cloud"
     }
   }
 }
