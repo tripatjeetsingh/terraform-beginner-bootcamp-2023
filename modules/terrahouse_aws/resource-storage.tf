@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "website_bucket" {
   bucket = var.bucket_name
   tags = {
     UserUuid        = var.UserUuid
-    Hello           = "world"
+    Hello           = "mars"
   }
 }
 
@@ -21,17 +21,17 @@ resource "aws_s3_bucket_website_configuration" "website_config" {
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.website_bucket.id
   key          = "index.html"  # Change to your desired index file
-  source       = var.index_html_filepath  # Local path to your index.html file
+  source       = "${path.root}/${var.index_html_filepath}"  # Local path to your index.html file
   content_type = "text/html"
-  etag = filemd5(var.index_html_filepath)
+  etag = filemd5("${path.root}/${var.index_html_filepath}")
 }
 
 resource "aws_s3_object" "error" {
   bucket       = aws_s3_bucket.website_bucket.id
   key          = "error.html"  # Change to your desired error file
-  source       = var.error_html_filepath  # Local path to your error.html file
+  source       = "${path.root}/${var.error_html_filepath}"  # Local path to your error.html file
   content_type = "text/html"
-  etag = filemd5(var.error_html_filepath)
+  etag = filemd5("${path.root}/${var.error_html_filepath}")
 }
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
