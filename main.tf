@@ -5,12 +5,12 @@ terraform {
       version = "1.0.0"
     }
   }
-  cloud {
-    organization = "ACG-Terraform-Demos-Orgs"
-    workspaces {
-      name = "terra-house-workspace1"
-    }
-  }
+  # cloud {
+  #   organization = "ACG-Terraform-Demos-Orgs"
+  #   workspaces {
+  #     name = "terra-house-workspace1"
+  #   }
+  # }
 }
 provider "terratowns" {
   endpoint = "http://localhost:4567"
