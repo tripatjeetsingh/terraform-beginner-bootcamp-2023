@@ -1,4 +1,4 @@
-variable "UserUuid" {
+variable "teacherseat_user_uuid" {
   type = string
   description = "UserUuid of the bootcamper"
 }

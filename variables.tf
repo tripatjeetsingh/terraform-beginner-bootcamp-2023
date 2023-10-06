@@ -1,6 +1,9 @@
-variable "UserUuid" {
+variable "teacherseat_user_uuid" {
   type        = string
   description = "UserUuid of the bootcamper"
+}
+variable "terratowns_access_token" {
+  type = string
 }
 variable "bucket_name" {
   type = string
@@ -16,4 +19,7 @@ variable "assets_filepath" {
 }
 variable "content_version" {
   type = number
+}
+variable "terratowns_endpoint" {
+  type = string
 }
