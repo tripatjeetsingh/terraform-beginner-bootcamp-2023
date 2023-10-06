@@ -28,7 +28,7 @@ provider "terratowns" {
 # }
 
 resource "terratowns_home" "home" {
-  name = "How to play Arcanum"
+  name = "How to play Arcanum in 2023!"
   description = <<DESC
 Arcanum is a game from 2001 that shipped with a lot of bugs.
 Moddlers have removed all the originals making this game really fun to play
