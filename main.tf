@@ -26,3 +26,16 @@ provider "terratowns" {
 #   content_version     = var.content_version
 #   assets_filepath     = var.assets_filepath
 # }
+
+resource "terratowns_home" "home" {
+  name = "How to play Arcanum in 2023!"
+  description = <<DESC
+Arcanum is a game from 2001 that shipped with a lot of bugs.
+Moddlers have removed all the originals making this game really fun to play
+(despite the old looking graphics). This is my guide that will show you
+how to play arcanum without spoiling the plot
+DESC
+  town = "gamers-grotto"
+  domain_name = "abcde.cloudfront.net"
+  content_version = 1
+}
