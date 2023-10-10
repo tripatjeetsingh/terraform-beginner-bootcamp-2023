@@ -5,12 +5,12 @@ terraform {
       version = "1.0.0"
     }
   }
-  # cloud {
-  #   organization = "ACG-Terraform-Demos-Orgs"
-  #   workspaces {
-  #     name = "terra-house-workspace1"
-  #   }
-  # }
+  cloud {
+    organization = "ACG-Terraform-Demos-Orgs"
+    workspaces {
+      name = "terra-house-workspace1"
+    }
+  }
 }
 provider "terratowns" {
   #endpoint = "http://localhost:4567"
@@ -18,26 +18,47 @@ provider "terratowns" {
   user_uuid = var.teacherseat_user_uuid
   token = var.terratowns_access_token
 }
-module "terrahouse_aws" {
-  source              = "./modules/terrahouse_aws"
-  teacherseat_user_uuid            = var.teacherseat_user_uuid
-  bucket_name         = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version     = var.content_version
-  assets_filepath     = var.assets_filepath
+module "home_mario" {
+  source                = "./modules/terrahome_aws"
+  UserUuid              = var.teacherseat_user_uuid
+  bucket_name           = var.bucket_name
+  public_path           = var.mario.public_path
+  content_version       = var.mario.content_version
 }
 
 resource "terratowns_home" "home" {
-  name = "How to play Arcanum in 2023!"
+  name = "The Mario Bros."
   description = <<DESC
-Arcanum is a game from 2001 that shipped with a lot of bugs.
-Moddlers have removed all the originals making this game really fun to play
-(despite the old looking graphics). This is my guide that will show you
-how to play arcanum without spoiling the plot
+In the Mushroom Kingdom, a tribe of turtle-like creatures known as the Koopa Troopas
+invade the kingdom and uses the magic of its king, Bowser, to turn its inhabitants, 
+known as the Mushroom People, into inanimate objects such as bricks, stones and horsehair plants. 
+Bowser and his army also kidnap Princess Toadstool, the princess of the Mushroom Kingdom and 
+the only one with the ability to reverse Bowser's spell. After hearing the news, the mario brothers
+set out to save the princess and free the kingdom from Bowser.
 DESC
   town = "missingo"
-  domain_name = module.terrahouse_aws.cloudfront_distribution_domain_name
-  #domain_name = "abcde.cloudfront.net"
-  content_version = 1
+  domain_name = module.home_mario.cloudfront_distribution_domain_name
+  content_version = var.mario.content_version
 }
+
+# module "home_recipe" {
+#   source                = "./modules/terrahome_aws"
+#   UserUuid              = var.teacherseat_user_uuid
+#   bucket_name           = var.bucket_name
+#   public_path           = var.mushroom_pasta.public_path
+#   content_version       = var.mushroom_pasta.content_version
+# }
+
+# resource "terratowns_home" "recipe" {
+#   name = "Making Mushroom pasta for Mario"
+#   description = <<DESC
+# Today we’re jumping into a warp pipe and heading out on an adventure into the world of Mario and Luigi. 
+# Get ready to savor a taste of the Mushroom Kingdom with this delightful Mushroom Pasta recipe inspired 
+# by the Mario Brothers Movie. With its creamy sauce, savory mushrooms, and flavorful ingredients, 
+# this dish brings the magic of the Mario franchise to your dinner table. 
+# DESC
+#   town = "cooker-cove"
+#   domain_name = module.home_recipe.cloudfront_distribution_domain_name
+#   content_version = var.mushroom_pasta.content_version
+# }
+

@@ -75,7 +75,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   tags = {
-    UserUuid = var.teacherseat_user_uuid
+    UserUuid = var.UserUuid
   }
 
   viewer_certificate {
@@ -91,5 +91,4 @@ aws cloudfront create-invalidation \
 --paths '/*'
 EOT
   }
-  depends_on = [ aws_cloudfront_distribution.s3_distribution ]
 }
