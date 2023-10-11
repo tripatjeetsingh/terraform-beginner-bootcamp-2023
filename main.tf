@@ -21,7 +21,6 @@ provider "terratowns" {
 module "home_mario" {
   source                = "./modules/terrahome_aws"
   UserUuid              = var.teacherseat_user_uuid
-  #bucket_name           = var.bucket_name
   public_path           = var.mario.public_path
   content_version       = var.mario.content_version
 }
@@ -36,7 +35,7 @@ Bowser and his army also kidnap Princess Toadstool, the princess of the Mushroom
 the only one with the ability to reverse Bowser's spell. After hearing the news, the mario brothers
 set out to save the princess and free the kingdom from Bowser.
 DESC
-  town = "missingo"
+  town = "gamers-grotto"
   domain_name = module.home_mario.cloudfront_distribution_domain_name
   content_version = var.mario.content_version
 }
@@ -44,7 +43,6 @@ DESC
 module "home_recipe" {
   source                = "./modules/terrahome_aws"
   UserUuid              = var.teacherseat_user_uuid
-  #bucket_name           = var.bucket_name
   public_path           = var.mushroom_pasta.public_path
   content_version       = var.mushroom_pasta.content_version
 }

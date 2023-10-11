@@ -1,5 +1,4 @@
 terratowns_endpoint = "https://terratowns.cloud"
-bucket_name="39gbtngmhkwgniynv3mf2q8s2bjk71ml"
 mario = {
     public_path = "/workspace/terraform-beginner-bootcamp-2023/public/mario"
     content_version = 1 
