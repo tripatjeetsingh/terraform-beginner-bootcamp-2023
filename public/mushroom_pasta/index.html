@@ -1,7 +1,143 @@
-<h1>Hello Terraformer's</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Mario's Recipe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-<img src="./assets/mushroom-pasta.jpg" />
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
 
-<blockquote>
-  <p>This is the mushroom-pasta recipe for Mario and Luigi</p>
-</blockquote>
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 0px;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width:100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Mushroom Kingdom Recipes</h1>
+  <p>A website created by Tripatjeet Singh</p>
+</div>
+
+<div class="navbar">
+  <a href="#">Home</a>
+  <a href="#">Recipes</a>
+  <a href="#">Our Story</a>
+  <a href="#" class="right">Contact Us</a>
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>Mushroom Kingdom</h2>
+    <div class="fakeimg img" style="height:200px;"><img class="img" src="./assets/mario-kingdom.png"></div>
+    <p style = "font-family:serif;font-size:16px;">Today we’re jumping into a warp pipe and heading out on an adventure into the world of Mario and Luigi. 
+Get ready to savor a taste of the Mushroom Kingdom with this delightful Mushroom Pasta recipe inspired 
+by the Mario Brothers Movie. With its creamy sauce, savory mushrooms, and flavorful ingredients, 
+this dish brings the magic of the Mario franchise to your dinner table.</p>
+  </div>
+  <div class="main">
+    <h2>Mario's Mushroom Pasta</h2>
+    <h5>Enjoy Mario's Delicious Mushroom Pasta</h5>
+    <div class="fakeimg img" style="height:400px;"><img class="img" src="./assets/pasta.jpg"></div>
+    <p style = "font-family:serif;font-size:16px;">- This pasta dish comes together faster than you can beat every level in Bowser’s Castle. Seriously, from start to finish, you’re looking at about a 30-minute process to make this pasta.<br><br>
+	- Deglazing with white wine is a crucial step that adds depth and complexity to the mushroom pasta sauce. It loosens the flavorful caramelized bits from the bottom of the skillet, infusing the dish with a rich and nuanced taste.<br><br>
+	- Once the wine has reduced, it’s time for the sauce to come together. That’s where the reserved pasta water comes in. When you boil the pasta, some of the starches leach into the water. Adding a small amount of this starchy water to the skillet helps the sauce adhere better to the pasta and provides thickness as it cools.<br><br>
+	- Use a heatproof measuring cup to scoop out just enough pasta water to achieve the desired consistency. Simmer it with some heavy cream in the skillet for a silky-smooth mushroom cream sauce.<br>
+	</p>
+    <br>
+  </div>
+</div>
+</body>
+</html>

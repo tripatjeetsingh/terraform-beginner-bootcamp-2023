@@ -1,8 +1,141 @@
-<h1>Hello Terraformer's</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Mario's Recipe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-<img src="./assets/mario.png" />
-<img src="./assets/mario_world.jpg"  />
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
 
-<blockquote>
-  <p>This is the super mario world</p>
-</blockquote>
+/* Style the header */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the h1 element */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 0px;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width:100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Super Mario</h1>
+  <p>A website created by Tripatjeet Singh</p>
+</div>
+
+<div class="navbar">
+  <a href="#">Home</a>
+  <a href="#">Game</a>
+  <a href="#">Our Story</a>
+  <a href="#" class="right">Contact Us</a>
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>Mushroom Kingdom</h2>
+    <div class="fakeimg img" style="height:200px;"><img class="img" src="./assets/Mario-Movie.png"></div>
+    <p style = "font-family:serif;font-size:16px;">In the Mushroom Kingdom, a tribe of turtle-like creatures known as the Koopa Troopas
+invade the kingdom and uses the magic of its king, Bowser, to turn its inhabitants, 
+known as the Mushroom People, into inanimate objects such as bricks, stones and horsehair plants. 
+Bowser and his army also kidnap Princess Toadstool, the princess of the Mushroom Kingdom and 
+the only one with the ability to reverse Bowser's spell. After hearing the news, the mario brothers
+set out to save the princess and free the kingdom from Bowser.</p>
+  </div>
+  <div class="main">
+    <h2>Mario Bros.</h2>
+    <h5>Enjoy Super Mario Game</h5>
+    <div class="fakeimg img" style="height:400px;"><img class="img" src="./assets/mario_world.jpg"></div>
+    <p style = "font-family:serif;font-size:16px;">The Super Mario games are set primarily in the fictional Mushroom Kingdom, typically with Mario as the player character. He is usually joined by his brother, Luigi, and often by other members of the Mario cast. As platform games, they involve the player character running and jumping across platforms and atop enemies in themed levels. The games have simple plots, typically with Mario and Luigi rescuing the kidnapped Princess Peach from the primary antagonist, Bowser.</p>
+    <br>
+  </div>
+</div>
+</body>
+</html>
