@@ -2,9 +2,9 @@ variable "UserUuid" {
   type = string
   description = "UserUuid of the bootcamper"
 }
-variable "bucket_name" {
-  type = string
-}
+# variable "bucket_name" {
+#   type = string
+# }
 variable "public_path" {
   type = string
   description = "The file path for public directory"

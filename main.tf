@@ -21,7 +21,7 @@ provider "terratowns" {
 module "home_mario" {
   source                = "./modules/terrahome_aws"
   UserUuid              = var.teacherseat_user_uuid
-  bucket_name           = var.bucket_name
+  #bucket_name           = var.bucket_name
   public_path           = var.mario.public_path
   content_version       = var.mario.content_version
 }
@@ -41,24 +41,24 @@ DESC
   content_version = var.mario.content_version
 }
 
-# module "home_recipe" {
-#   source                = "./modules/terrahome_aws"
-#   UserUuid              = var.teacherseat_user_uuid
-#   bucket_name           = var.bucket_name
-#   public_path           = var.mushroom_pasta.public_path
-#   content_version       = var.mushroom_pasta.content_version
-# }
+module "home_recipe" {
+  source                = "./modules/terrahome_aws"
+  UserUuid              = var.teacherseat_user_uuid
+  #bucket_name           = var.bucket_name
+  public_path           = var.mushroom_pasta.public_path
+  content_version       = var.mushroom_pasta.content_version
+}
 
-# resource "terratowns_home" "recipe" {
-#   name = "Making Mushroom pasta for Mario"
-#   description = <<DESC
-# Today we’re jumping into a warp pipe and heading out on an adventure into the world of Mario and Luigi. 
-# Get ready to savor a taste of the Mushroom Kingdom with this delightful Mushroom Pasta recipe inspired 
-# by the Mario Brothers Movie. With its creamy sauce, savory mushrooms, and flavorful ingredients, 
-# this dish brings the magic of the Mario franchise to your dinner table. 
-# DESC
-#   town = "cooker-cove"
-#   domain_name = module.home_recipe.cloudfront_distribution_domain_name
-#   content_version = var.mushroom_pasta.content_version
-# }
+resource "terratowns_home" "recipe" {
+  name = "Making Mushroom pasta for Mario"
+  description = <<DESC
+Today we’re jumping into a warp pipe and heading out on an adventure into the world of Mario and Luigi. 
+Get ready to savor a taste of the Mushroom Kingdom with this delightful Mushroom Pasta recipe inspired 
+by the Mario Brothers Movie. With its creamy sauce, savory mushrooms, and flavorful ingredients, 
+this dish brings the magic of the Mario franchise to your dinner table. 
+DESC
+  town = "cooker-cove"
+  domain_name = module.home_recipe.cloudfront_distribution_domain_name
+  content_version = var.mushroom_pasta.content_version
+}
 
