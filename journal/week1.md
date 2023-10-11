@@ -1,6 +1,39 @@
 # Terraform Beginner Bootcamp 2023 - Week 1
 
 ## Table of Contents
+- [Root Module Structure](#root-module-structure)
+- [Terraform and Input Variables](#terraform-and-input-variables)
+  * [Terraform Cloud Variables](#terraform-cloud-variables)
+  * [Loading Terraform Variables](#loading-terraform-variables)
+    + [-var flag](#-var-flag)
+    + [--var-file flag](#--var-file-flag)
+    + [terraform.tfvars](#terraformtfvars)
+    + [auto.tfvars](#autotfvars)
+  * [Variable Definition Precedence](#variable-definition-precedence)
+- [Dealing with configuration drift](#dealing-with-configuration-drift)
+- [What happens if you lose your state file?](#what-happens-if-you-lose-your-state-file)
+  * [Fix Missing Resources with Terraform Import](#fix-missing-resources-with-terraform-import)
+  * [Fix Manual Configuration](#fix-manual-configuration)
+- [Fix using Terraform Refresh](#fix-using-terraform-refresh)
+- [Terraform Modules](#terraform-modules)
+  * [Terraform Module Structure](#terraform-module-structure)
+  * [Passing Input Variables](#passing-input-variables)
+  * [Terraform Module Sources](#terraform-module-sources)
+- [Considerations when using ChatGPT to write Terraform](#considerations-when-using-chatgpt-to-write-terraform)
+- [working with Files in Terraform](#working-with-files-in-terraform)
+  * [Filemd5](#filemd5)
+  * [Fileexists function](#fileexists-function)
+  * [Path Variables](#path-variables)
+- [Terraform Locals](#terraform-locals)
+- [Terraform Data Source](#terraform-data-source)
+- [Working with JSON](#working-with-json)
+  * [Changing the Lifecycle of Resoruces](#changing-the-lifecycle-of-resoruces)
+- [Terraform Data](#terraform-data)
+- [Terraform Provisioners](#terraform-provisioners)
+  * [Local-exec](#local-exec)
+  * [Remote-exec](#remote-exec)
+- [For_Each Expressions](#for-each-expressions)
+
 
 ## Root Module Structure 
 
@@ -61,7 +94,7 @@ Terraform loads variables in the following order, with later sources taking prec
 
 ## Dealing with configuration drift
 
-## What happens if you lose your state file?
+## What happens if you lose your state file
 
 If you lose your state file, you most likely have to tear down all your cloud infrastructure manually. 
 
@@ -256,7 +289,7 @@ This will execute commands on a machine which you target. You will need to provi
 [remote-exec documentation](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
 
 
-## For_Each Expressions
+## For Each Expressions
 
 If a resource or module block includes a for_each argument whose value is a map or a set of strings, Terraform creates one instance for each member of that map or set.
 
