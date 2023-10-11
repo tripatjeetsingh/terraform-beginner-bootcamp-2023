@@ -1,6 +1,10 @@
 terratowns_endpoint = "https://terratowns.cloud"
 bucket_name="39gbtngmhkwgniynv3mf2q8s2bjk71ml"
-index_html_filepath="./public/index.html"
-error_html_filepath="./public/error.html"
-assets_filepath="./public/assets"
-content_version=1
+mario = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/mario"
+    content_version = 1 
+}
+mushroom_pasta = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/mushroom_pasta"
+    content_version = 1 
+}
